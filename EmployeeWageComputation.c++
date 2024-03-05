@@ -1,30 +1,30 @@
 #include<iostream>
+#include<cstdlib>
 using namespace std;
 int main(){
 
-    int Attendance;
     const int WagePerHour = 20;
     int DailyEmployeeWage = 0;
     const int FULL_TIME_HOUR = 8;
     const int PART_TIME_HOUR = 4;
+    const int WORKING_DAYS = 20;
     int EmployeeType;
+    int srand(9);
     
     cout<<"Welcome to Employee Wage Computation Program..!!\n";
 
-    cout<<"Enter the Employee Attendance : (0=Abesent) OR (1=Present) : ";
-    cin>>Attendance;
+    for(int i = 1 ; i <= WORKING_DAYS ; i++){
+        cout<<"Day : "<<+i<<endl;
     
-    switch(Attendance){
+    switch(rand()%2){
         case 0:
         cout<<"Employee is Absent..!!"<<endl;
         break;
 
         case 1:
         cout<<"Employee is Present..!!"<<endl;
-        cout<<"Enter the Employee Type : (0=PartTime) OR (1=FullTime) : ";
-        cin>>EmployeeType;
 
-        switch(EmployeeType){
+        switch(rand()%2){
             case 0:
             cout<<"Employee is Part Time..!!"<<endl;
             DailyEmployeeWage = WagePerHour * PART_TIME_HOUR;
@@ -37,8 +37,9 @@ int main(){
             cout<<"Employee Full Time Wage is : "<<DailyEmployeeWage<<endl;
             break;
         }
-
     }
+         cout<<"--------------------------------------------------\n";
 
+}
     return 0;
 }
