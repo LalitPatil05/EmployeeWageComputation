@@ -8,7 +8,7 @@ int main(){
     const int FULL_TIME_HOUR = 8;
     const int PART_TIME_HOUR = 4;
     const int WORKING_DAYS = 20;
-    int EmployeeType;
+    int TotalWage = 0;
     int srand(9);
     
     cout<<"Welcome to Employee Wage Computation Program..!!\n";
@@ -37,9 +37,12 @@ int main(){
             cout<<"Employee Full Time Wage is : "<<DailyEmployeeWage<<endl;
             break;
         }
+            TotalWage += DailyEmployeeWage;
     }
-         cout<<"--------------------------------------------------\n";
+            cout<<"--------------------------------------------------\n";
 
-}
-    return 0;
+    }
+        cout<<"Total Monthly Wage is : "<<TotalWage<<endl;
+        
+        return 0;
 }
