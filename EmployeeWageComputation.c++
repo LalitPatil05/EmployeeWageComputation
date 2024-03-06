@@ -1,48 +1,65 @@
 #include<iostream>
-#include<cstdlib>
+#include<stdlib.h>
+#include<time.h>
 using namespace std;
 int main(){
-
+    
     const int WagePerHour = 20;
     int DailyEmployeeWage = 0;
+    int Attendance;
+    int EmployeeType;
     const int FULL_TIME_HOUR = 8;
     const int PART_TIME_HOUR = 4;
     const int WORKING_DAYS = 20;
     int TotalWage = 0;
-    int srand(9);
+    int WorkingHour = 0;
+    int WorkingDays = 1;
     
+    srand(time(time_t()));
+
     cout<<"Welcome to Employee Wage Computation Program..!!\n";
-
-    for(int i = 1 ; i <= WORKING_DAYS ; i++){
-        cout<<"Day : "<<+i<<endl;
+   
+   while(WorkingHour <= 100 && WorkingDays <= 20) {
     
-    switch(rand()%2){
-        case 0:
-        cout<<"Employee is Absent..!!"<<endl;
-        break;
+            Attendance = rand() % 2;
+            EmployeeType = rand() % 2;
 
-        case 1:
-        cout<<"Employee is Present..!!"<<endl;
-
-        switch(rand()%2){
+            cout<<"Day : "<<WorkingDays<<endl;
+    
+            switch(Attendance){
             case 0:
-            cout<<"Employee is Part Time..!!"<<endl;
-            DailyEmployeeWage = WagePerHour * PART_TIME_HOUR;
-            cout<<"Employee Part Time Wage is : "<<DailyEmployeeWage<<endl;
+            cout<<"Employee is Absent..!!"<<endl;
             break;
 
             case 1:
+            cout<<"Employee is Present..!!"<<endl;
+
+            switch(EmployeeType){
+            
+            case 0:
+
+            cout<<"Employee is Part Time..!!"<<endl;
+            DailyEmployeeWage = WagePerHour * PART_TIME_HOUR;
+            cout<<"Employee Part Time Wage is : "<<DailyEmployeeWage<<endl;
+            WorkingHour += PART_TIME_HOUR;
+            break;
+
+            case 1:
+
             cout<<"Employee is Full Time..!!"<<endl;
             DailyEmployeeWage = WagePerHour * FULL_TIME_HOUR;
             cout<<"Employee Full Time Wage is : "<<DailyEmployeeWage<<endl;
+            WorkingHour += FULL_TIME_HOUR;
             break;
         }
             TotalWage += DailyEmployeeWage;
     }
+            cout<<"Total Working Hours is : "<<WorkingHour<<endl;
             cout<<"--------------------------------------------------\n";
+            WorkingDays++;
+}   
+            cout<<"Total Monthly Working Hours is : "<<WorkingHour<<endl;
+            cout<<"Total Monthly Wage is : "<<TotalWage<<endl;
 
-    }
-        cout<<"Total Monthly Wage is : "<<TotalWage<<endl;
-        
-        return 0;
+            return 0;
 }
