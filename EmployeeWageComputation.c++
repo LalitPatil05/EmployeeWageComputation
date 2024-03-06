@@ -2,8 +2,11 @@
 #include<stdlib.h>
 #include<time.h>
 using namespace std;
-int main(){
-    
+class EmployeeWageCompute{
+    public:
+
+        void EmployeeWageCalc() {
+
     const int WagePerHour = 20;
     int DailyEmployeeWage = 0;
     int Attendance;
@@ -61,5 +64,13 @@ int main(){
             cout<<"Total Monthly Working Hours is : "<<WorkingHour<<endl;
             cout<<"Total Monthly Wage is : "<<TotalWage<<endl;
 
-            return 0;
+    }
+};
+int main(){
+
+    EmployeeWageCompute employeewagecompute;
+    employeewagecompute.EmployeeWageCalc();
+    return 0;
+
 }
+    
