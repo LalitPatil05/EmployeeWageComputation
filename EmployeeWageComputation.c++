@@ -3,26 +3,33 @@
 #include<time.h>
 using namespace std;
 class EmployeeWageCompute{
+
     public:
-
-        void EmployeeWageCalc() {
-
-    const int WagePerHour = 20;
+    int WagePerHour;
     int DailyEmployeeWage = 0;
     int Attendance;
     int EmployeeType;
     const int FULL_TIME_HOUR = 8;
     const int PART_TIME_HOUR = 4;
-    const int WORKING_DAYS = 20;
     int TotalWage = 0;
     int WorkingHour = 0;
     int WorkingDays = 1;
-    
-    srand(time(time_t()));
+    int MonthlyDay;
+    int MonthlyHour;
+
+            EmployeeWageCompute(int WagePerHour,int MonthlyDay,int MonthlyHour){
+                this->WagePerHour = WagePerHour;
+                this->MonthlyDay = MonthlyDay;
+                this->MonthlyHour = MonthlyHour;
+            }
+
+        int EmployeeWageCalc() {
+
+        srand(time(time_t()));
 
     cout<<"Welcome to Employee Wage Computation Program..!!\n";
    
-   while(WorkingHour <= 100 && WorkingDays <= 20) {
+   while(WorkingHour <= MonthlyHour && WorkingDays <= MonthlyDay) {
     
             Attendance = rand() % 2;
             EmployeeType = rand() % 2;
@@ -68,7 +75,7 @@ class EmployeeWageCompute{
 };
 int main(){
 
-    EmployeeWageCompute employeewagecompute;
+    EmployeeWageCompute employeewagecompute(20,20,50);
     employeewagecompute.EmployeeWageCalc();
     return 0;
 
